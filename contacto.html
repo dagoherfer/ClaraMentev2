@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contacto — ClaraMente</title>
+<meta name="description" content="Ponte en contacto con ClaraMente. Envianos tus dudas, consultas o comentarios."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#17324D;
+  --navy-light:#1e3f61;
+  --gold:#C8A76A;
+  --gold-light:#dfc08e;
+  --cream:#FAF8F4;
+  --white:#FFFFFF;
+  --gray-200:#E2DFD6;
+  --gray-400:#A8A49A;
+  --gray-600:#6B6762;
+  --gray-800:#3A3835;
+  --text:#17324D;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --max-w:600px;
+  --radius:12px;
+}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--navy);text-decoration:none;transition:color 0.2s}
+a:hover{color:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,167,106,0.15)}
+.nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo-text{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--navy)}
+.nav-logo-text span{color:var(--gold)}
+.btn-home{background:var(--navy);color:var(--white);padding:0.5rem 1.2rem;border-radius:20px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:background 0.2s}
+.btn-home:hover{background:var(--gold);color:var(--white)}
+
+/* CONTENT */
+.content-wrapper{max-width:var(--max-w);margin:120px auto 80px;padding:0 2rem}
+.contact-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:3rem;box-shadow:0 8px 30px rgba(23,50,77,0.04)}
+h1{font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;line-height:1.2;text-align:center;}
+.subtitle{text-align:center;color:var(--gray-600);margin-bottom:2rem;font-size:1rem;}
+
+/* FORM */
+.form-group{margin-bottom:1.25rem;display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.9rem;font-weight:600;color:var(--navy)}
+.form-group input, .form-group textarea{
+  padding:0.75rem;
+  border:1px solid var(--gray-200);
+  border-radius:var(--radius);
+  font-family:var(--font-body);
+  color:var(--text);
+  font-size:0.95rem;
+  background:var(--cream);
+  transition:border-color 0.2s, outline 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus{
+  outline:none;
+  border-color:var(--gold);
+}
+.form-group textarea{resize:vertical;min-height:120px}
+.btn-submit{
+  display:block;
+  width:100%;
+  padding:0.85rem;
+  background:var(--navy);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:1rem;
+  font-weight:600;
+  border:none;
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:background 0.2s, transform 0.2s;
+  margin-top:1.5rem;
+  text-align:center;
+}
+.btn-submit:hover{
+  background:var(--gold);
+}
+.btn-submit:active{
+  transform:translateY(1px);
+}
+
+.success-message{
+  display:none;
+  text-align:center;
+  padding:2rem 0;
+}
+.success-icon{font-size:3rem;margin-bottom:1rem;display:block}
+.success-message h3{font-family:var(--font-display);font-size:1.75rem;color:var(--navy);margin-bottom:1rem}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:3rem 2rem;text-align:center;font-size:0.9rem}
+footer p{margin-bottom:0}
+
+@media(max-width:600px){
+  .contact-card{padding:1.5rem}
+  h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="nav-logo-text">Clara<span>Mente</span></span>
+    </div>
+    <a href="index.html" class="btn-home">← Volver al inicio</a>
+  </div>
+</nav>
+
+<div class="content-wrapper">
+  <div class="contact-card">
+    <div id="contactFormWrapper">
+      <h1>Contacto</h1>
+      <p class="subtitle">Escribinos y te responderemos a la brevedad.</p>
+      
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" required placeholder="Tu nombre"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required placeholder="tu@email.com"/>
+        </div>
+        <div class="form-group">
+          <label for="asunto">Asunto *</label>
+          <input type="text" id="asunto" required placeholder="¿De qué trata tu consulta?"/>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" required placeholder="Escribí tu mensaje aquí..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar mensaje →</button>
+      </form>
+    </div>
+
+    <div id="successMessage" class="success-message">
+      <span class="success-icon">✨</span>
+      <h3>¡Mensaje enviado!</h3>
+      <p>Gracias por ponerte en contacto. Hemos recibido tu mensaje y te responderemos lo antes posible a tu correo electrónico.</p>
+      <a href="index.html" class="btn-submit" style="display:inline-block; max-width:200px; margin-top:2rem; text-decoration:none;">Volver al inicio</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 ClaraMente. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const submitBtn = e.target.querySelector('.btn-submit');
+  submitBtn.textContent = 'Enviando...';
+  submitBtn.disabled = true;
+
+  const payload = {
+    access_key: "5efdb883-bc4e-4aec-84a3-7d46b1055635",
+    subject: `Nuevo mensaje de Contacto ClaraMente: ${document.getElementById('asunto').value}`,
+    from_name: document.getElementById('nombre').value,
+    email: document.getElementById('email').value,
+    to_email: "diego@clara-mente.ar",
+    
+    Nombre: document.getElementById('nombre').value,
+    Email: document.getElementById('email').value,
+    Asunto: document.getElementById('asunto').value,
+    Mensaje: document.getElementById('mensaje').value
+  };
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(async (response) => {
+    if (response.status == 200) {
+      document.getElementById('contactFormWrapper').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+    } else {
+      const json = await response.json();
+      alert('Ocurrió un error al enviar el mensaje: ' + json.message);
+      submitBtn.textContent = 'Enviar mensaje →';
+      submitBtn.disabled = false;
+    }
+  })
+  .catch(error => {
+    alert('Ocurrió un error de red al enviar el mensaje. Por favor, reintentá.');
+    submitBtn.textContent = 'Enviar mensaje →';
+    submitBtn.disabled = false;
+  });
+});
+</script>
+
+</body>
+</html>
